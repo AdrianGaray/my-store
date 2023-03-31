@@ -2,35 +2,50 @@
 <form (ngSubmit)="onRegister()" #myForm="ngForm">
   <div class="input-group">
     <label for="name">Nombre</label>
-    <input type="text" name="name" required id="name" [(ngModel)]="register.name" />
+    <input
+      type="text"
+      name="name"
+      required
+      id="name"
+      [(ngModel)]="register.name" />
     <p>Mensajes de error</p>
   </div>
   <div class="input-group">
     <label for="email">Email</label>
-    <input type="email" name="email" required id="email" [(ngModel)]="register.email" />
+    <input
+      type="email"
+      name="email"
+      required
+      id="email"
+      [(ngModel)]="register.email" />
     <p>Mensajes de error</p>
   </div>
   <div class="input-group">
     <label for="password">Password</label>
-    <input type="password" name="password" required id="password" [(ngModel)]="register.password" />
+    <input
+      type="password"
+      name="password"
+      required
+      id="password"
+      [(ngModel)]="register.password" />
     <p>Mensajes de error</p>
   </div>
   <button [disabled]="myForm.invalid" type="submit">Registrar</button>
   <button type="button">Accion</button>
 </form>
 
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
 <h1>NgClass y NgStyle</h1>
 <input type="text" required #nameInput4="ngModel" [(ngModel)]="person.name" />
-<hr class="line-error"
+<hr
+  class="line-error"
   [ngClass]="{
-    'valid': nameInput4.valid,
-    'invalid': nameInput4.invalid
-  }"
-/>
+    valid: nameInput4.valid,
+    invalid: nameInput4.invalid
+  }" />
 <p class="message-error" [class.invalid]="nameInput4.invalid">
   El campo es requerido
 </p>
@@ -42,20 +57,19 @@
     <input type="color" [(ngModel)]="box.background" />
   </div>
   <div>
-    <div [ngStyle]="{
-                      'width.px': box.width,
-                      'height.px': box.height,
-                      'background-color': box.background,
-                      'display': 'block'
-                    }"
-    >
-    </div>
+    <div
+      [ngStyle]="{
+        'width.px': box.width,
+        'height.px': box.height,
+        'background-color': box.background,
+        display: 'block'
+      }"></div>
   </div>
 </div>
 
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
 <h1>Class and style</h1>
 <h2>Clase dinamica</h2>
@@ -66,64 +80,59 @@
 <h2>Modificar el estilo</h2>
 <label>Nombre</label>
 <input type="text" required #nameInput3="ngModel" [(ngModel)]="person.name" />
-<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">Texto texto texto</p>
+<p [style.font-style]="nameInput3.invalid ? 'italic' : 'normal'">
+  Texto texto texto
+</p>
 <div class="styles">
   <div>
     <input type="text" [(ngModel)]="widthImg" />
   </div>
   <div>
-    <img [style.width.px]="widthImg" [src]="person.avatar">
+    <img [style.width.px]="widthImg" [src]="person.avatar" />
   </div>
 </div>
 
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
 <h1>Estilos a la lista de productos</h1>
 <div class="products--grid">
   <div *ngFor="let product of products">
-    <img [src]="product.image" alt="image">
+    <img [src]="product.image" alt="image" />
     <h2>{{ product.price }}</h2>
     <p>{{ product.name }}</p>
   </div>
 </div>
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
 <h1>Uso de *ngSwitch</h1>
 <input type="text" required [(ngModel)]="person.name" />
 <div [ngSwitch]="person.name">
-  <p *ngSwitchCase = "'Adri'">
-    La persona es Adrian
-  </p>
-  <p *ngSwitchCase = "'Julian'">
-    La persona es Julian
-  </p>
-  <p *ngSwitchCase = "'Camilo'">
-    La persona es Camilo
-  </p>
+  <p *ngSwitchCase="'Adri'">La persona es Adrian</p>
+  <p *ngSwitchCase="'Julian'">La persona es Julian</p>
+  <p *ngSwitchCase="'Camilo'">La persona es Camilo</p>
   <p *ngSwitchDefault>No hace Match</p>
 </div>
 
-
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
 <h1>*ngFor para arrays</h1>
 <div>
   <div *ngFor="let product of products">
-    <img width="250" [src]="product.image" alt="image">
+    <img width="250" [src]="product.image" alt="image" />
     <h2>{{ product.price }}</h2>
     <p>{{ product.name }}</p>
   </div>
 </div>
 
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
 <h1>Uso de *ngFor</h1>
 <input type="text" required [(ngModel)]="newName" />
@@ -131,7 +140,7 @@
 
 <ul>
   <li *ngFor="let name of names">
-      {{name}}
+    {{ name }}
   </li>
 </ul>
 
@@ -139,100 +148,113 @@
 <ul>
   <li *ngIf="names.length === 0">No hay nombres</li>
   <li *ngFor="let name of names; index as i">
-      {{i}} {{name}}
-      <button (click)="deleteName(i)">Delete</button>
+    {{ i }} {{ name }}
+    <button (click)="deleteName(i)">Delete</button>
   </li>
 </ul>
 
 <p>Agregar elemento dinamicamente</p>
 
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
 <h1>Uso de *ngIf</h1>
-<p *ngIf="1==1">Mi contenido</p>
+<p *ngIf="1 === 1">Mi contenido</p>
 <input type="text" required [(ngModel)]="person.name" />
 <p *ngIf="person.name === 'Adri'">Soy Adri</p>
 <p *ngIf="person.name === 'julian'">Soy Julian</p>
-<p *ngIf="person.name === 'julian' && person.age === 18; else myBlock">Soy Julian y tengo 18</p>
+<p *ngIf="person.name === 'julian' && person.age === 18; else myBlock">
+  Soy Julian y tengo 18
+</p>
 <ng-template #myBlock>
-  <p>
-    Bloque de else
-  </p>
+  <p>Bloque de else</p>
 </ng-template>
 
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
-<h1>String  {{ 'Interpolation' }}</h1>
-<br>
+<h1>String {{ 'Interpolation' }}</h1>
+<br />
 <h1>Hola mundo</h1>
 <h2>{{ 'Hola Mundo'.repeat(5) }}</h2>
-<p>3 + 3 = {{3+3}}</p>
+<p>3 + 3 = {{ 3 + 3 }}</p>
 <h3>Hola, soy {{ name }} tengo {{ age }}</h3>
-<img width="100" src="{{ img }}" alt="image">
+<img width="100" src="{{ img }}" alt="image" />
 
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
 <h1>Propiedades</h1>
 <button disabled="false">Enviar</button>
-<br><br>
+<br /><br />
 <button [disabled]="btnDisabled">Enviar Con Binding</button>
-<br><br>
-<input type="text" value="Adri">
-<br><br>
-<input type="text" [value]="name">
-<br><br>
+<br /><br />
+<input type="text" value="Adri" />
+<br /><br />
+<input type="text" [value]="name" />
+<br /><br />
 <progress max="100" [value]="age"></progress>
-<br><br>
-<img width="100" [src]="img" alt="image">
+<br /><br />
+<img width="100" [src]="img" alt="image" />
 
-<br><br>
+<br /><br />
 
 <h1>Renderizando las Propiedades con Objetos</h1>
-<input type="text" [value]="person.name">
-<br><br>
+<input type="text" [value]="person.name" />
+<br /><br />
 <progress max="100" [value]="person.age"></progress>
-<br><br>
-<img width="100" [src]="person.avatar" alt="image">
+<br /><br />
+<img width="100" [src]="person.avatar" alt="image" />
 
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
 <h1>Event Binding de Angular</h1>
 <button [disabled]="btnDisabled">Enviar Con Binding</button>
 <button (click)="toggleButton()">Toggle Button</button>
-<br><br>
-<p>Edad {{person.age}}</p>
+<br /><br />
+<p>Edad {{ person.age }}</p>
 <button (click)="increaseAge()">Age ++</button>
 
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 
 <h1>Otros eventos que puedes escuchar</h1>
 <div class="box" (scroll)="onScroll($event)">
-  <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere repellat accusantium sequi cumque similique dolores vitae qui, beatae placeat assumenda. Adipisci voluptatem quisquam accusantium soluta porro nihil ratione ut at?</p>
+  <p>
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facere repellat
+    accusantium sequi cumque similique dolores vitae qui, beatae placeat
+    assumenda. Adipisci voluptatem quisquam accusantium soluta porro nihil
+    ratione ut at?
+  </p>
 </div>
-<br><br>
-<p>Nombre: {{person.name}}</p>
-<input type="text" required  [value]="person.name" (keyup)="changeName($event)">
+<br /><br />
+<p>Nombre: {{ person.name }}</p>
+<input
+  type="text"
+  required
+  [value]="person.name"
+  (keyup)="changeName($event)" />
 
-<br><br>
-<hr/>
-<br>
+<br /><br />
+<hr />
+<br />
 <h1>Data binding con ngModel</h1>
 <h1>NgModel</h1>
 <p>Nombre {{ person.name }}</p>
-<input type="text" required  #nameInput="ngModel" [(ngModel)]="person.name" />
+<input type="text" required #nameInput="ngModel" [(ngModel)]="person.name" />
 <p>Valid: {{ nameInput.valid }}</p>
 <p>Edad: {{ person.age }}</p>
-<input type="number" max="18" min="10" required  #ageInput="ngModel" [(ngModel)]="person.age" />
+<input
+  type="number"
+  max="18"
+  min="10"
+  required
+  #ageInput="ngModel"
+  [(ngModel)]="person.age" />
 <p>Valid: {{ ageInput.valid }}</p>
-
-
